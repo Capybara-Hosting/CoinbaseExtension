@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinbase Commerce Extension for Paymenter - BuiltByBit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .project-overview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .project-info h2 {
+            color: #667eea;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .project-info p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .project-image {
+            text-align: center;
+        }
+
+        .project-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .screenshots {
+            margin-bottom: 40px;
+        }
+
+        .screenshots h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        .screenshot-item img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+        }
+
+        .screenshot-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .screenshot-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .tech-specs {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .tech-specs h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .spec-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .spec-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .spec-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .installation {
+            background: #e8f5e8;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .installation h2 {
+            color: #4CAF50;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .install-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .install-steps li {
+            counter-increment: step-counter;
+            padding: 15px 0;
+            position: relative;
+            padding-left: 50px;
+            border-bottom: 1px solid #d4edda;
+        }
+
+        .install-steps li:last-child {
+            border-bottom: none;
+        }
+
+        .install-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 15px;
+            background: #4CAF50;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .project-overview {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Coinbase Commerce Extension</h1>
+            <p>Professional Cryptocurrency Payment Gateway for Paymenter</p>
+        </div>
+
+        <div class="main-content">
+            <div class="project-overview">
+                <div class="project-info">
+                    <h2>About the Project</h2>
+                    <p>This extension integrates Coinbase Commerce cryptocurrency payments into your Paymenter installation, providing a seamless and secure way to accept Bitcoin, Ethereum, USDC, and other major cryptocurrencies.</p>
+                    
+                    <p>Built with modern PHP practices and following Paymenter's extension architecture, this extension offers enterprise-grade security and reliability for cryptocurrency transactions.</p>
+
+                    <ul class="features-list">
+                        <li>Accept payments in major cryptocurrencies</li>
+                        <li>Secure webhook handling for payment status updates</li>
+                        <li>Automatic invoice processing</li>
+                        <li>Professional payment interface</li>
+                        <li>Support for both test and production environments</li>
+                        <li>Intelligent charge reuse to prevent duplicates</li>
+                        <li>Comprehensive security features</li>
+                    </ul>
+                </div>
+                <div class="project-image">
+                    <img src="photos/ChoseHowToPay.png" alt="Payment Method Selection Interface">
+                </div>
+            </div>
+
+            <div class="screenshots">
+                <h2>User Interface Screenshots</h2>
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="photos/ChoseHowToPay.png" alt="Payment Method Selection">
+                        <h3>Payment Method Selection</h3>
+                        <p>Clean interface for customers to choose their preferred cryptocurrency payment method</p>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="photos/CryptoSelectorPayment.png" alt="Cryptocurrency Payment Interface">
+                        <h3>Cryptocurrency Payment</h3>
+                        <p>Professional payment interface with network selection and fee breakdown</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-specs">
+                <h2>Technical Specifications</h2>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <h3>🔄 Payment Processing</h3>
+                        <p>Creates charges on Coinbase Commerce API, stores charge ID in invoice properties, and handles multiple currencies seamlessly.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h3>🔗 Webhook Processing</h3>
+                        <p>Receives and verifies webhook notifications using HMAC SHA256, processes all major event types automatically.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h3>🛡️ Security Features</h3>
+                        <p>Webhook signature verification, CSRF protection, comprehensive logging, and error handling with validation.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h3>⚙️ Configuration</h3>
+                        <p>Easy setup with API Key, Webhook Secret, Test Mode toggle, and proper field validation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="installation">
+                <h2>Quick Installation Guide</h2>
+                <ol class="install-steps">
+                    <li>Ensure the extension files are in the <code>extensions/Gateways/Coinbase-Commerce/</code> directory</li>
+                    <li>Get your API Key from Coinbase Commerce Settings > Security</li>
+                    <li>Get your Webhook Secret from Settings > Notifications</li>
+                    <li>Configure in Paymenter Admin > Extensions > Gateways</li>
+                    <li>Set up webhook URL: <code>https://yourdomain.com/extensions/coinbasecommerce/webhook</code></li>
+                    <li>Select webhook events: charge:created, charge:pending, charge:confirmed, charge:failed</li>
+                </ol>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Accept Cryptocurrency?</h2>
+                <p>Transform your Paymenter installation with enterprise-grade cryptocurrency payment processing</p>
+                <a href="#installation" class="cta-button">Get Started Now</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Coinbase Commerce Extension for Paymenter. Built with ❤️ by Dankata Pich</p>
+        </div>
+    </div>
+</body>
+</html>
